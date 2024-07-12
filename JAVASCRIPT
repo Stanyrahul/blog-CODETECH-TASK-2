@@ -1,0 +1,29 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const postForm = document.getElementById('post-form');
+    const postList = document.getElementById('post-list');
+
+    postForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const title = document.getElementById('title').value;
+        const content = document.getElementById('content').value;
+        
+        if (title && content) {
+            const post = document.createElement('div');
+            post.classList.add('post');
+            
+            const postTitle = document.createElement('h3');
+            postTitle.textContent = title;
+            post.appendChild(postTitle);
+            
+            const postContent = document.createElement('p');
+            postContent.textContent = content;
+            post.appendChild(postContent);
+            
+            postList.appendChild(post);
+            
+            // Clear the form
+            postForm.reset();
+        }
+    });
+});
